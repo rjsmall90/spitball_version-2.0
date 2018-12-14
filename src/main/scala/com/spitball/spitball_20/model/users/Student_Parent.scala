@@ -1,4 +1,4 @@
-package com.spitball.spitball_20.model
+package com.spitball.spitball_20.model.users
 
 import javax.persistence.Entity
 
