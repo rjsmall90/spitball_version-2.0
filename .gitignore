@@ -5,3 +5,5 @@
 *.iml
 
 ### NetBeans ###
+target/generated-sources/
+target/generated-test-sources/
