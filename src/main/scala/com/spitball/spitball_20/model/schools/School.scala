@@ -7,7 +7,7 @@ import scala.collection.mutable
 class School {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   var id: Long = _;
 
   @Column(name = "schoolName")
