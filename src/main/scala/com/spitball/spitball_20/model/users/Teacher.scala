@@ -20,7 +20,5 @@ class Teacher extends User {
   @JoinColumn(name="schAndTea", nullable=false)
   var school: School = _;
 
-  //@Column
-  //var comments = new Messages();
 
 }

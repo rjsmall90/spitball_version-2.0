@@ -25,7 +25,7 @@ class School {
   @BeanProperty
   var bulletinBoard = new mutable.MutableList();
 
- @BeanProperty
+  @BeanProperty
   @OneToMany
   @JoinColumn(name="schAndTea")
   var teachers: java.util.List[Teacher] = _;
