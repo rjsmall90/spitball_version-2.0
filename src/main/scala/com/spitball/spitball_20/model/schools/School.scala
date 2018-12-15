@@ -24,9 +24,10 @@ class School {
   var location: String = _;
   @BeanProperty
   var bulletinBoard = new mutable.MutableList();
-//
-//@BeanProperty
-//  @OneToMany(targetEntity = Class[Teacher], mappedBy = "schoolId", fetch = FetchType.LAZY)
-//  var teachers = new mutable.MutableList();
+
+ @BeanProperty
+  @OneToMany
+  @JoinColumn(name="schAndTea")
+  var teachers: java.util.List[Teacher] = _;
 
 }

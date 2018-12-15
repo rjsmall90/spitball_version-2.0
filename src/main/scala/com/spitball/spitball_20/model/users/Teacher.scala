@@ -1,5 +1,6 @@
 package com.spitball.spitball_20.model.users
 
+import com.spitball.spitball_20.model.schools.School
 import javax.persistence._
 
 import scala.beans.BeanProperty
@@ -13,6 +14,11 @@ class Teacher extends User {
 
   @BeanProperty
   var schoolId: Long = _;
+
+  @BeanProperty
+  @ManyToOne
+  @JoinColumn(name="schAndTea", nullable=false)
+  var school: School = _;
 
   //@Column
   //var comments = new Messages();
