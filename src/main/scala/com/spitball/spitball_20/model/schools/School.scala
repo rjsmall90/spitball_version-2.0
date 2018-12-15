@@ -28,6 +28,6 @@ class School {
   @BeanProperty
   @OneToMany
   @JoinColumn(name="schAndTea")
-  var teachers: java.util.List[Teacher] = _;
+  var teachers = new scala.collection.mutable.ListBuffer[Long]
 
 }
