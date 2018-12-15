@@ -1,29 +1,33 @@
 package com.spitball.spitball_20.model.schools
 
+import com.spitball.spitball_20.model.users.Teacher
 import javax.persistence._
 
+import scala.beans.BeanProperty
 import scala.collection.mutable
 
+@Entity
 class School {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @BeanProperty
   var id: Long = _;
 
-  @Column(name = "schoolName")
+  @BeanProperty
   var schoolName: String = _;
 
-  @Column(name = "schoolDistrict")
+  @BeanProperty
   var districtName: String = _;
 
-  @Column(name = "location")
+  @BeanProperty
   var location: String = _;
-
-  @Column(name = "bulletinBoard")
+  @BeanProperty
   var bulletinBoard = new mutable.MutableList();
 
-  @Column(name = "teachers")
-  @ManyToOne
-  var teachers = new mutable.MutableList();
+ @BeanProperty
+  @OneToMany
+  @JoinColumn(name="schAndTea")
+  var teachers: java.util.List[Teacher] = _;
 
 }
