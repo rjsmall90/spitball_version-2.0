@@ -13,7 +13,7 @@ class Teacher extends User {
 
   @BeanProperty
   @ManyToOne
-  @JoinColumn(name="schAndTea", nullable=false)
+  @JoinColumn(name="schAndTea", nullable = true)
   var schoolId: School = _;
 
 

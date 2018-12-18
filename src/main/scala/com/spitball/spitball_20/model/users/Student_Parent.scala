@@ -5,7 +5,9 @@ import javax.persistence.Entity
 import scala.beans.BeanProperty
 
 @Entity
-class Student_Parent extends User {
+class
+Student_Parent extends User {
+
   @BeanProperty
   var username: String = _;
 

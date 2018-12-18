@@ -1,29 +1,33 @@
-package com.spitball.spitball_20.service
+package com.spitball.spitball_20.service.users
 
-import java.util
-
-import com.spitball.spitball_20.model.users.Student_Parent
+import com.spitball.spitball_20.model.users.{Student_Parent, User}
 import com.spitball.spitball_20.repository.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-
 @Service
 class Student_ParentService(@Autowired private val userRepository: UserRepository) {
 
-  def getAllUsers(): util.List[Student_Parent] = {
-    userRepository.findAll
+  def getAllUsers(): java.util.List[User] = {
+    userRepository.findAll()
   }
 
-  def getUsers(id: Long): Student_Parent = {
-    userRepository.findOne(id)
+
+  def getUserByFirstName(name: String): User = {
+  userRepository.findUserByFirstName(name)
+
   }
 
-  def createUsers(student_parent: Student_Parent): String = {
-    userRepository.save(student_parent)
+  def createUser(student_parent: Student_Parent): String = {
+    userRepository.saveAndFlush(student_parent)
     student_parent.getEmail
   }
 
-  def deleteUsers(student_parent: Student_Parent) = {
-    userRepository.delete(student_parent)
+  def deleteUser(id: Long): Unit = {
+    userRepository.deleteById(id)
+  }
+
+  def updateUser(student_parent: Student_Parent): Long ={
+    userRepository.saveAndFlush(student_parent)
+    student_parent.getId
   }
 }

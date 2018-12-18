@@ -27,7 +27,7 @@ class School {
 
   @BeanProperty
   @OneToMany
-  @JoinColumn(name="schAndTea")
+  @JoinColumn(name="schAndTea", nullable = true)
   var teacherId: java.util.List[Teacher] = _;
 
 }
