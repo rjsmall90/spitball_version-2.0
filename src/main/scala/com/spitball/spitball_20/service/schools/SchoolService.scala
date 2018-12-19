@@ -3,8 +3,10 @@ package com.spitball.spitball_20.service.schools
 import com.spitball.spitball_20.model.schools.School
 import com.spitball.spitball_20.repositories.SchoolRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Service
 
-class SchoolService(@Autowired private val schoolRepository: SchoolRepository ) {
+@Service
+class SchoolService(@Autowired private val schoolRepository: SchoolRepository) {
 
   def getAllSchools(): java.util.List[School] = {
     schoolRepository.findAll()
@@ -12,13 +14,13 @@ class SchoolService(@Autowired private val schoolRepository: SchoolRepository ) 
 
 
   def getSchoolByFirstName(name: String): School = {
-    schoolRepository.findUserByFirstName(name)
+    schoolRepository.findBySchoolName(name)
 
   }
 
-  def createUser(school: School): String = {
+  def createSchool(school: School): String = {
     schoolRepository.saveAndFlush(school)
-    school.getSchoolName()
+    school.getSchoolName
   }
 
   def deleteSchool(id: Long): Unit = {
@@ -26,7 +28,7 @@ class SchoolService(@Autowired private val schoolRepository: SchoolRepository ) 
   }
 
   def updateSchool(school: School): Long ={
-    schoolRepository.saveAndFlush(teacher)
-    teacher.getId
+    schoolRepository.saveAndFlush(school)
+    school.getId
   }
 }

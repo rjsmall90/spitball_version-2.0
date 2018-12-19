@@ -23,7 +23,7 @@ class TeacherController(@Autowired val teacherService: TeacherService, @Autowire
 
   @PostMapping(path = Array("/"))
   def createUser(@RequestBody tea: Teacher): ResponseEntity[String] = {
-    val email = teacherService.createUser(sp)
+    val email = teacherService.createUser(tea)
     new ResponseEntity(email, new HttpHeaders, HttpStatus.CREATED)
   }
 
@@ -33,8 +33,9 @@ class TeacherController(@Autowired val teacherService: TeacherService, @Autowire
   }
 
   @PutMapping(path = Array("/{id}"))
-  def updateUser(@RequestBody tea: Teacher): Unit = {
-    val id = teacherService.updateUser(tea)
+  def updateUser(@RequestBody tea: Teacher, @PathVariable id: Long): Unit = {
+    deleteUser(id)
+    val newId = teacherService.updateUser(tea)
   }
 
 }

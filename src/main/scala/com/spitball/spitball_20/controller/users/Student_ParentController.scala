@@ -33,8 +33,10 @@ class Student_ParentController(@Autowired val student_parentService: Student_Par
   }
 
   @PutMapping(path = Array("/{id}"))
-  def updateUser(@RequestBody sp: Student_Parent): Unit = {
-    val id = student_parentService.updateUser(sp)
+  def updateUser(@RequestBody sp: Student_Parent, @PathVariable id: Long): Unit = {
+    deleteUser(id)
+     val newId = student_parentService.updateUser(sp)
+
   }
 
 }
