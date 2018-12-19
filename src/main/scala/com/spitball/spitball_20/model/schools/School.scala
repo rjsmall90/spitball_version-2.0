@@ -4,7 +4,6 @@ import com.spitball.spitball_20.model.users.Teacher
 import javax.persistence._
 
 import scala.beans.BeanProperty
-import scala.collection.mutable
 
 @Entity
 class School {
@@ -23,7 +22,7 @@ class School {
   @BeanProperty
   var location: String = _;
   @BeanProperty
-  var bulletinBoard = new mutable.MutableList();
+  var bulletinBoard: List[java.lang.String] = _
 
   @BeanProperty
   @OneToMany
